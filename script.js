@@ -31,6 +31,18 @@ function studyCalculator() {
     let C = parseInt(studyC.value)
     let D = parseInt(studyD.value)
     let E = parseInt(studyE.value)
+    // if (A = "") A = 0
+    // if (B = "") B = 0
+    // if (C = "") C = 0
+    // if (D = "") D = 0
+    // if (E = NaN) {E = 0}
+    A = A || 0
+    B = B || 0
+    C = C || 0
+    D = D || 0
+    E = E || 0
+    
+    console.log(E)
     let x = 250 - (C+D+E);
     if(x<0) x = 0
     if(prescribed.checked){

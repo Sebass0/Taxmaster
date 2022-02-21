@@ -22,12 +22,12 @@
             method,
             running expenses for a room set aside specifically for study.
         </div>
-        <p><input type="number" id="studyA" placeholder="A" onchange="studyCalculator()">
+        <p><input type="number" id="studyA" placeholder="A"  onchange="studyCalculator()">
         <p><button onclick="toggleView('bExp')">B?</button>
         <div id="bExp" class="initialhide container-fluid p-2 border border-secondary bg-dark text-white row">
             B Decline in value (depreciation) deductions such as a computer,
             desk, or car for which the taxpayer claiming a deduction in Category A using the logbook method.</div>
-        <p><input type="number" id="studyB" placeholder="B" onchange="studyCalculator()">
+        <p><input type="number" id="studyB" placeholder="B" value ='0' onchange="studyCalculator()">
         <p><button onclick="toggleView('cExp')">C?</button>
         <div id="cExp" class="initialhide container-fluid p-2 border border-secondary bg-dark text-white row">C Repair
             costs to assets used for self-education purposes.
@@ -40,7 +40,7 @@
             The taxpayer cannot claim car expenses under this category if they have made a claim using the logbook
             method in Category A.
         </div>
-        <p><input type="number" id="studyD" placeholder="D" onchange="studyCalculator()">
+        <p><input type="number" id="studyD" placeholder="D"  onchange="studyCalculator()">
         <p><button onclick="toggleView('eExp')">E?</button>
         <div id="eExp" class="initialhide container-fluid p-2 border border-secondary bg-dark text-white row">E Expenses
             the taxpayer has incurred but cannot use as a deduction – for example:
@@ -53,7 +53,7 @@
             • capital costs of items acquired in the financial year and used for self-education purposes, such as a
             computer or desk.
         </div>
-        <p><input type="number" id="studyE" placeholder="E" onchange="studyCalculator()">
+        <p><input type="number" id="studyE" placeholder="E"  onchange="studyCalculator()">
         <p>Course Prescribed?<input id="prescribed" type="checkbox" onchange="studyCalculator()">
         <p><input type="text" id="equationText" style="min-width: 25vw;" readonly value="A + B + C + D">
         <div id="studyOutput"></div>
