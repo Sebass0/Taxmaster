@@ -22,6 +22,7 @@ let studyB = document.getElementById('studyB')
 let studyC = document.getElementById('studyC')
 let studyD = document.getElementById('studyD')
 let studyE = document.getElementById('studyE')
+let prescribed = document.getElementById('prescribed')
 let studyOutput = document.getElementById('studyOutput')
 
 function studyCalculator() {
@@ -32,4 +33,10 @@ function studyCalculator() {
     let E = parseInt(studyE.value)
     let x = 250 - (C+D+E);
     if(x<0) x = 0
+    if(prescribed.checked){
+        
+        document.getElementById('equationText').value = "A – ($250 − (C + D + E)) + B + C + D"
+    }
+    else {x=0; document.getElementById('equationText').value = "A + B + C + D"}
+
     studyOutput.innerHTML = A - x + B + C + D}
