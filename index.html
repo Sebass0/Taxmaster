@@ -13,51 +13,99 @@
 </head>
 
 <body>
-    <input type="button" id="showStudyBtn" value="Show study equation + Input fields" onclick="toggleStudy()">
-    <section id="studyequationinput">
-        <p><button onclick="toggleView('aExp')">A?</button>
-        <div id="aExp" class="initialhide container-fluid p-2 border border-secondary bg-dark text-white row">
-            A Tuition fees, textbooks, stationery, student union fees,
-            student services and amenities fees, public transport fares, car expenses worked out using the 'logbook'
-            method,
-            running expenses for a room set aside specifically for study.
+    <div class="container-fluid p-2 border border-secondary bg-dark text-white row">
+        <!-- Menu with 4 links -->
+        <div id="secbutton1" class="menulink text-center col border shadow border-primary">
+            <a href="#secbutton1" accesskey="1" onclick="toggleStudy()">
+                <h3>Show study equation + Input fields</h3>
+                <!-- <input type="button" id="showStudyBtn" value="Show study equation + Input fields" > -->
+            </a>
         </div>
-        <p><input type="number" id="studyA" placeholder="A"  onchange="studyCalculator()">
-        <p><button onclick="toggleView('bExp')">B?</button>
-        <div id="bExp" class="initialhide container-fluid p-2 border border-secondary bg-dark text-white row">
-            B Decline in value (depreciation) deductions such as a computer,
-            desk, or car for which the taxpayer claiming a deduction in Category A using the logbook method.</div>
-        <p><input type="number" id="studyB" placeholder="B" value ='0' onchange="studyCalculator()">
-        <p><button onclick="toggleView('cExp')">C?</button>
-        <div id="cExp" class="initialhide container-fluid p-2 border border-secondary bg-dark text-white row">C Repair
-            costs to assets used for self-education purposes.
-            The taxpayer cannot claim repair expenses for their car as they claim those in Category A or Category D.
+        <div id="secbutton2" class="menulink text-center col border shadow border-white">
+            <a href="#secbutton2" onclick="showSec('sec2')" accesskey="2">
+                <h3>Section 2</h3>
+            </a>
         </div>
-        <p><input type="number" id="studyC" placeholder="C" onchange="studyCalculator()">
-        <p><button onclick="toggleView('dExp')">D?</button>
-        <div id="dExp" class="initialhide container-fluid p-2 border border-secondary bg-dark text-white row">D Car
-            expenses using the 'cents per kilometre' method.
-            The taxpayer cannot claim car expenses under this category if they have made a claim using the logbook
-            method in Category A.
+        <div id="secbutton3" class="menulink text-center col border shadow border-warning">
+            <a href="#secbutton3" onclick="showSec('sec3')" accesskey="3">
+                <h3>Section 3</h3>
+            </a>
         </div>
-        <p><input type="number" id="studyD" placeholder="D"  onchange="studyCalculator()">
-        <p><button onclick="toggleView('eExp')">E?</button>
-        <div id="eExp" class="initialhide container-fluid p-2 border border-secondary bg-dark text-white row">E Expenses
-            the taxpayer has incurred but cannot use as a deduction – for example:
-            • work-related self-education, travel expenses for the last stage of travel from their
-            • home to place of education and then to their workplace, or
-            • workplace to their place of education and then to their home
-            • travel expenses from their home to their normal place of education and back incurred by taxable
-            scholarship recipients who are not employed by the scholarship provider
-            • child care costs related to attendance at lectures or other self-education activities
-            • capital costs of items acquired in the financial year and used for self-education purposes, such as a
-            computer or desk.
+        <div id="secbutton4" class="menulink text-center col border shadow border-danger">
+            <a href="#secbutton4" onclick="showSec('sec4')" accesskey="4">
+                <h3>Section 4</h3>
+            </a>
         </div>
-        <p><input type="number" id="studyE" placeholder="E"  onchange="studyCalculator()">
-        <p>Course Prescribed?<input id="prescribed" type="checkbox" onchange="studyCalculator()">
-        <p><input type="text" id="equationText" style="min-width: 25vw;" readonly value="A + B + C + D">
-        <div id="studyOutput"></div>
-    </section>
+        <!-- study equation -->
+        <section id="studyequationinput">
+            <p>
+            <p><button onclick="toggleView('aExp')">A?</button>
+            <div id="aExp" class="initialhide container-fluid p-2 border border-secondary bg-dark text-white row">
+                A Tuition fees, textbooks, stationery, student union fees,
+                student services and amenities fees, public transport fares, car expenses worked out using the 'logbook'
+                method,
+                running expenses for a room set aside specifically for study.
+            </div>
+            <div class="container-fluid p-2">
+                <input class="col" type="number" id="studyA" placeholder="A" onchange="studyCalculator('A')">
+                <input type="button" value="clr" onclick="resetArray('A')">
+                <span id="aCollector" class="col"></span>
+            </div>
+            <p><button onclick="toggleView('bExp')">B?</button>
+            <div id="bExp" class="initialhide container-fluid p-2 border border-secondary bg-dark text-white row">
+                B Decline in value (depreciation) deductions such as a computer,
+                desk, or car for which the taxpayer claiming a deduction in Category A using the logbook method.</div>
+                <div class="container-fluid p-2">
+                    <input class="col" type="number" id="studyB" placeholder="B" onchange="studyCalculator('B')">
+                    <input type="button" value="clr" onclick="resetArray('B')">
+                    <span id="bCollector" class="col"></span>
+                </div>
+                <p><button onclick="toggleView('cExp')">C?</button>
+            <div id="cExp" class="initialhide container-fluid p-2 border border-secondary bg-dark text-white row">C
+                Repair
+                costs to assets used for self-education purposes.
+                The taxpayer cannot claim repair expenses for their car as they claim those in Category A or Category D.
+            </div>
+            <div class="container-fluid p-2">
+                <input class="col" type="number" id="studyC" placeholder="C" onchange="studyCalculator('C')">
+                <input type="button" value="clr" onclick="resetArray('C')">
+                <span id="cCollector" class="col"></span>
+            </div>
+            <p><button onclick="toggleView('dExp')">D?</button>
+            <div id="dExp" class="initialhide container-fluid p-2 border border-secondary bg-dark text-white row">D Car
+                expenses using the 'cents per kilometre' method.
+                The taxpayer cannot claim car expenses under this category if they have made a claim using the logbook
+                method in Category A.
+            </div>
+            <div class="container-fluid p-2">
+                <input class="col" type="number" id="studyD" placeholder="D" onchange="studyCalculator('D')">
+                <input type="button" value="clr" onclick="resetArray('D')">
+                <span id="dCollector" class="col"></span>
+            </div>
+            <p><button onclick="toggleView('eExp')">E?</button>
+            <div id="eExp" class="initialhide container-fluid p-2 border border-secondary bg-dark text-white row">E
+                Expenses
+                the taxpayer has incurred but cannot use as a deduction – for example:
+                • work-related self-education, travel expenses for the last stage of travel from their
+                • home to place of education and then to their workplace, or
+                • workplace to their place of education and then to their home
+                • travel expenses from their home to their normal place of education and back incurred by taxable
+                scholarship recipients who are not employed by the scholarship provider
+                • child care costs related to attendance at lectures or other self-education activities
+                • capital costs of items acquired in the financial year and used for self-education purposes, such as a
+                computer or desk.
+            </div>
+            <div class="container-fluid p-2">
+                <input class="col" type="number" id="studyE" placeholder="E" onchange="studyCalculator('E')">
+                <input type="button" value="clr" onclick="resetArray('E')">
+                <span id="eCollector" class="col"></span>
+            </div>
+            <p>Course Prescribed?<input id="prescribed" type="checkbox" onchange="studyCalculator()">
+            <p><input type="text" id="equationText" style="min-width: 25vw;" readonly value="A + B + C + D">
+            <div id="studyOutput"></div>
+        </section>
+        <!-- end study equation -->
+
 </body>
 
 </html>
