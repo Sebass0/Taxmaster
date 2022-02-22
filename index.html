@@ -47,8 +47,9 @@
                 running expenses for a room set aside specifically for study.
             </div>
             <div class="container-fluid p-2">
-                <input class="col" type="number" id="studyA" placeholder="A" onchange="studyCalculator('A')">
-                <input type="button" value="clr" onclick="resetArray('A')">
+                <input class="col" type="number" id="studyA" placeholder="A" >
+                <input type="button" value="Add" onclick="studyCalculator('A')">
+                <input type="button" value="Clear" onclick="resetArray('A')">
                 <span id="aCollector" class="col"></span>
             </div>
             <p><button onclick="toggleView('bExp')">B?</button>
@@ -56,8 +57,9 @@
                 B Decline in value (depreciation) deductions such as a computer,
                 desk, or car for which the taxpayer claiming a deduction in Category A using the logbook method.</div>
                 <div class="container-fluid p-2">
-                    <input class="col" type="number" id="studyB" placeholder="B" onchange="studyCalculator('B')">
-                    <input type="button" value="clr" onclick="resetArray('B')">
+                    <input class="col" type="number" id="studyB" placeholder="B" >
+                    <input type="button" value="Add" onclick="studyCalculator('B')">
+                    <input type="button" value="Clear" onclick="resetArray('B')">
                     <span id="bCollector" class="col"></span>
                 </div>
                 <p><button onclick="toggleView('cExp')">C?</button>
@@ -67,8 +69,9 @@
                 The taxpayer cannot claim repair expenses for their car as they claim those in Category A or Category D.
             </div>
             <div class="container-fluid p-2">
-                <input class="col" type="number" id="studyC" placeholder="C" onchange="studyCalculator('C')">
-                <input type="button" value="clr" onclick="resetArray('C')">
+                <input class="col" type="number" id="studyC" placeholder="C" >
+                <input type="button" value="Add" onclick="studyCalculator('C')">
+                <input type="button" value="Clear" onclick="resetArray('C')">
                 <span id="cCollector" class="col"></span>
             </div>
             <p><button onclick="toggleView('dExp')">D?</button>
@@ -78,8 +81,9 @@
                 method in Category A.
             </div>
             <div class="container-fluid p-2">
-                <input class="col" type="number" id="studyD" placeholder="D" onchange="studyCalculator('D')">
-                <input type="button" value="clr" onclick="resetArray('D')">
+                <input class="col" type="number" id="studyD" placeholder="D" >
+                <input type="button" value="Add" onclick="studyCalculator('D')">
+                <input type="button" value="Clear" onclick="resetArray('D')">
                 <span id="dCollector" class="col"></span>
             </div>
             <p><button onclick="toggleView('eExp')">E?</button>
@@ -96,8 +100,9 @@
                 computer or desk.
             </div>
             <div class="container-fluid p-2">
-                <input class="col" type="number" id="studyE" placeholder="E" onchange="studyCalculator('E')">
-                <input type="button" value="clr" onclick="resetArray('E')">
+                <input class="col" type="number" id="studyE" placeholder="E" >
+                <input type="button" value="Add" onclick="studyCalculator('E')">
+                <input type="button" value="Clear" onclick="resetArray('E')">
                 <span id="eCollector" class="col"></span>
             </div>
             <p>Course Prescribed?<input id="prescribed" type="checkbox" onchange="studyCalculator()">
