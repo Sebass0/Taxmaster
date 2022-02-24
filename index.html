@@ -122,20 +122,20 @@
                     Output</span>
             </p>
             <!-- Basic income tax liability = taxable income * tax rates -->
-            <p><input type="number" id="taxableIncome" placeholder="Taxable Income"> Aus tax resident?<input
+            <p class="border border-primary"><input type="number" id="taxableIncome" placeholder="Taxable Income"> Aus tax resident?<input
                     type="checkbox" id="ausResident"> <input type="button" value="Calculate" onclick="BITCalc()"> <span
                     id="taxRatesOutput">taxrateoutput</span>
             <div id="basicIncomeTaxLiabilityOutput">basic income tax liability</div>
             </p>
             <!-- net income tax liability = basic income tax liability - tax offsets (rounded up) -->
-            <p><input type="number" id="basicIncomeTaxLiability" placeholder="basicIncomeTaxLiability"> <input
-                    type="number" id="taxOffsets" placeholder="tax offsets">
+            <p class="border border-primary"><input type="number" id="basicIncomeTaxLiability" placeholder="basicIncomeTaxLiability"> 
+                <input type="number" id="taxOffsets" placeholder="Tax offsets (non-refundable)"><input type="number" id="refundableOffsets" placeholder="Refundable offsets"> 
                 <input type="button" value="Calculate" onclick="NITLCalc()">
                 <span id="netIncomeTaxLiabilityOutput">Net ICTL
                 </span>
             </p>
             <!-- amount payable/refundable (rounded to nearest 5c) = net income tax liability + levies and charges (truncated to 2 decimals) - credits -->
-            <p><input type="number" id="netIncomeTaxLiability" placeholder="Net Income Tax "> 
+            <p class="border border-primary"><input type="number" id="netIncomeTaxLiability" placeholder="Net Income Tax "> 
                 <input type="number" id="leviesCharges" placeholder="Levies and Charges">
                 <input type="number" id="credits" placeholder="Credits">
                 <input type="button" value="Calculate" onclick="FACalc()">
