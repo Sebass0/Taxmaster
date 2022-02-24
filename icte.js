@@ -10,22 +10,23 @@ let basicIncomeTaxOutput = document.getElementById('basicIncomeTaxLiabilityOutpu
 let basicIncomeTax = document.getElementById('basicIncomeTaxLiability')
 let taxOffsets = document.getElementById('taxOffsets')
 let netIncomeTaxOutput = document.getElementById('netIncomeTaxLiabilityOutput')
+let netIncomeTax = document.getElementById('netIncomeTaxLiability')
 let leviesCharges = document.getElementById('leviesCharges')
 let credits = document.getElementById('credits')
-let finalAmount = document.getElementById('finalAmount')
+let finalAmount = document.getElementById('finalAmount') //span
 
 //<!-- taxable income = assessable truncated down income - deductions truncated up-->
 function TICalc() {
     console.log('TICalcing')
     taxableIncome.value = assessableIncome.value - deductions.value
-    taxableIncomeOutput.innerHTML = "Taxable Income = Asessable income - deductions = " + assessableIncome.value + " - " + deductions.value + ' = ' + taxableIncome.value
+    taxableIncomeOutput.innerHTML = "Taxable Income = Assessable income - deductions = " + assessableIncome.value + " - " + deductions.value + ' = ' + taxableIncome.value
     console.log('TI calcd')
 }
 
 // <!-- Basic income tax liability = taxable income * tax rates (Aus resident has different tax rates)-->
 // $18,201 – $45,000 19 cents for each $1 over $18,200
 
-// $45,001 – $120,000 = $5,092 plus 32.5 cents for each $1 over $45,000
+// $45,001 – $120,000 = $5,092 plus 32.5 cents for each $1 over $45,000 
 
 // $120,001 – $180,000 $29,467 plus 37 cents for each $1 over $120,000
 
@@ -89,7 +90,18 @@ function BITCalc() {
 
 // <!-- net income tax liability = basic income tax liability - tax offsets (rounded up) -->
 function NITLCalc() {
-    basicIncomeTax.value
-    }
+    n = parseFloat(taxOffsets.value)
+    taxOffsets.value = Math.round(parseFloat(n + 0.499)) //auto rounds up
+    netIncomeTax.value = (basicIncomeTax.value - taxOffsets.value)
+    netIncomeTaxOutput.innerHTML = "Net income tax liability = basic income tax liability - tax offsets (rounded up) = " + basicIncomeTax.value + " - " + taxOffsets.value + " = " + netIncomeTax.value
+} 
 // <!-- amount payable/refundable (rounded to nearest 5c) = net income tax liability + levies and charges (truncated to 2 decimals) - credits -->
+function FACalc() {
+    console.log(netIncomeTax.value)
+    console.log(leviesCharges.value)
+    console.log(credits.value) 
+    let x = parseFloat(netIncomeTax.value) + parseFloat(leviesCharges.value) - parseFloat(credits.value) 
+    finalAmount.innerHTML = "Final amount (rounded to 5c) = Net income tax liability + levies and charges (rounded to 2dec) - credits = " + netIncomeTax.value +" + " + leviesCharges.value+ " - " + credits.value + " = " + x + ", rounded to nearest 5c = " + (Math.round(x*20)/20).toFixed(2)
+    console.log((Math.round(x*20)/20).toFixed(2))
 
+}

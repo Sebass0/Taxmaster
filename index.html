@@ -129,12 +129,17 @@
             </p>
             <!-- net income tax liability = basic income tax liability - tax offsets (rounded up) -->
             <p><input type="number" id="basicIncomeTaxLiability" placeholder="basicIncomeTaxLiability"> <input
-                    type="number" id="taxOffsets" placeholder="tax offsets"><input type="button" value="Calculate" onclick="NITLcalc()"><span id="netIncomeTaxLiabilityOutput">Net
-                    ICTL</span></p>
+                    type="number" id="taxOffsets" placeholder="tax offsets">
+                <input type="button" value="Calculate" onclick="NITLCalc()">
+                <span id="netIncomeTaxLiabilityOutput">Net ICTL
+                </span>
+            </p>
             <!-- amount payable/refundable (rounded to nearest 5c) = net income tax liability + levies and charges (truncated to 2 decimals) - credits -->
-            <p><input type="number" id="netIncomeTaxLiability" placeholder="Net Income Tax "> <input type="number"
-                    id="leviesCharges" placeholder="Levies and Charges"> <input type="number" id="credits"
-                    placeholder="Credits"></p>
+            <p><input type="number" id="netIncomeTaxLiability" placeholder="Net Income Tax "> 
+                <input type="number" id="leviesCharges" placeholder="Levies and Charges">
+                <input type="number" id="credits" placeholder="Credits">
+                <input type="button" value="Calculate" onclick="FACalc()">
+            </p>
             <p><span id="finalAmount">Final amount:</span></p>
         </section>
         <!-- End income tax equation -->
