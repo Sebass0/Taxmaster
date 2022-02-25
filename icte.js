@@ -112,9 +112,10 @@ function FACalc() {
     leviesCharges.value = leviesCharges.value || 0
     credits.value = credits.value || 0
     let x = parseFloat(netIncomeTax.value) + +(Math.round(leviesCharges.value + "e+2") + "e-2") - parseFloat(credits.value)
-    finalAmount.innerHTML = "Final amount (rounded to 5c) = Net income tax liability + levies and charges (rounded to 2dec) - credits = " + netIncomeTax.value + " + " + +(Math.round(leviesCharges.value + "e+2") + "e-2") + " - " + credits.value + " = " + x + ", rounded to nearest 5c = " + (Math.round(x * 20) / 20).toFixed(2)
-    if ((Math.round(x * 20) / 20).toFixed(2) > 0) { finalAmount.innerHTML += "<p>Amount payable is " + (Math.round(x * 20) / 20).toFixed(2) + "</p>" }
+    finalAmount.innerHTML = "Final amount (rounded down to nearest 5c) = Net income tax liability + levies and charges (rounded to 2dec) - credits = " + netIncomeTax.value + " + " + +(Math.round(leviesCharges.value + "e+2") + "e-2") + " - " + credits.value + " = " + x + ", rounded down to nearest 5c = " + (Math.round((x - 0.02) * 20) / 20).toFixed(2)
+    if ((Math.round(x * 20) / 20).toFixed(2) > 0) { finalAmount.innerHTML += "<p>Amount payable is " + (Math.round((x - 0.02) * 20) / 20).toFixed(2) + "</p>" }
     else { finalAmount.innerHTML += "<p>Amount refundable is " + ((Math.round(x * 20) / 20).toFixed(2) * -1)  + '</p>' }
-    console.log((Math.round(x * 20) / 20).toFixed(2))
+    console.log((Math.round((x - 0.02) * 20) / 20).toFixed(2))
+    console.log(x)
 
 }
