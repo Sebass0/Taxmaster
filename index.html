@@ -10,6 +10,7 @@
     <link href="https://bootswatch.com/5/quartz/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="icte.js" defer></script>
+    <script src="mls.js" defer></script>
     <title>Tax SPA</title>
 </head>
 
@@ -28,8 +29,8 @@
             </a>
         </div>
         <div id="secbutton3" class="menulink text-center col border shadow border-warning">
-            <a href="#secbutton3" onclick="showSec('sec3')" accesskey="3">
-                <h3>Section 3</h3>
+            <a href="#secbutton3" onclick="toggleView('medicareCalculatorInput')" accesskey="3">
+                <h3>Medicare Calculator</h3>
             </a>
         </div>
         <div id="secbutton4" class="menulink text-center col border shadow border-danger">
@@ -143,6 +144,24 @@
             <p><span id="finalAmount">Final amount:</span></p>
         </section>
         <!-- End income tax equation -->
+        <!-- medicare calculator -->
+        <section id="medicareCalculatorInput"  class="initialhide container-fluid p-2 border border-secondary bg-dark text-white row">
+        <p>
+            Foreign tax resident?<input type="checkbox" id="ftrCheck">
+            <input type="number" id="taxableIncomeML" placeholder="Taxable Income"> 
+            Partnered? <input type="checkbox" id="partner" onclick="toggleView('taxableIncomeMLP')">
+                <input type="number"  id="taxableIncomeMLP" class="initialhide" placeholder="Partner Taxable Income">
+            <input type="number" placeholder="No. of Dependents" id="dependents">
+            <p><input type="button" value="Calculate" onclick="MLCalc()"></p>
+            <div id="MLOutput">
+                Medicare levy output 
+            </div>
+            <div id="MLSOutput">MLS Output</div>
+            
+        </p>
+
+
+        </section>
 
 
 </body>
