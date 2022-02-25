@@ -97,7 +97,7 @@ function MLCalc() {
         h = x * .015
         MLOutput.innerHTML = "Taxable income is over the $29033 threshold to pay the full 2% levy, thus the levy = " + x + " * 0.02 = " + i
 
-        MLSOutput.innerHTML = "Taxable family income is over the highest $180000 Medicare levy surcharge threshold so the surcharge = " + x + " * 0.015 = " + h
+        MLSOutput.innerHTML = "Taxable family income is over the highest $280000 Medicare levy surcharge threshold so the surcharge = " + x + " * 0.015 = " + h
 
     }
 
